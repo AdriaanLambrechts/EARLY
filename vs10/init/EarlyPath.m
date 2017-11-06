@@ -75,11 +75,21 @@ addpath(fullfile(VD, 'DataAnalysis', 'ZWOAE', 'TDTgerbil'));
 addpath(fullfile(VD, 'DataAnalysis', 'SPTcorr'));
 addpath(fullfile(VD, 'DataAnalysis', 'SPTcorr', 'SPTcorrMEX'));
 addpath(fullfile(VD, 'DataAnalysis', 'EvalRoutines'))
-addpath(fullfile(VD, 'DataAnalysis', 'GenCalcFnc'))
 addpath(fullfile(VD, 'DataAnalysis', 'Tools'))
 addpath(fullfile(VD, 'DataAnalysis', 'strfun'))
 addpath(fullfile(VD, 'DataAnalysis', 'specific'))
 addpath(fullfile(VD, 'DataAnalysis', 'Plot'))
+addpath(fullfile(VD, 'DataAnalysis', 'Plot','KPlot'))
+addpath(fullfile(VD, 'DataAnalysis', 'Plot','KPlot','plotObjects'))
+addpath(fullfile(VD, 'DataAnalysis', 'Plot','plotObjects'))
+addpath(fullfile(VD, 'DataAnalysis', 'GenCalcFnc'))
+addpath(fullfile(VD, 'DataAnalysis', 'ConvFnc'))
+
+addpath(genpath([VD '\' 'DataAnalysis' '\' 'Tools']))
+addpath(genpath([VD '\' 'DataAnalysis' '\' 'Plot']))
+addpath(genpath([VD '\' 'DataAnalysis' '\' 'GenCalcFnc']))
+addpath(fullfile(VD, 'DataAnalysis', 'GenCalcFnc','calcvsph'))
+addpath(fullfile(VD, 'DataAnalysis', 'EvalRoutines'))
 % addpath(fullfile(VD, 'Hardware', 'Multiclamp'));
 % addpath(fullfile(VD, 'Hardware', 'Polytec'));
 
