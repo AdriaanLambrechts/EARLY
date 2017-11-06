@@ -7,7 +7,12 @@ function [] = start_datagraze()
         try
             if datagraze.active == 0
                 proc = System.Diagnostics.Process();
-                proc.StartInfo.FileName = 'matlab';
+% EVE: force opening same matlab version as dashboard!!!                
+%                 proc.StartInfo.FileName = 'matlab';
+                datagrazeVar.currentMatlablocation=[matlabroot, '\bin\matlab'];
+                    
+                proc.StartInfo.FileName = currentMatlablocation;                
+                
                 exp_name = current(experiment);
                 exp_name = exp_name.ID.Name;
                 proc.StartInfo.Arguments =  [' -nosplash ' ...

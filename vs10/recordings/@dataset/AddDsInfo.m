@@ -8,7 +8,9 @@ function [ DS ] = AddDsInfo( DS,ds_info )
 if DS.ID.PenDepth ~= ds_info.pen_depth
     DS.ID.PenDepth = ds_info.pen_depth;
     DS.ID.Experiment = status(DS.ID.Experiment,'iCell',ds_info.iCell,'iRecOfCell',ds_info.iRecOfCell-1, 'PenDepth', ds_info.pen_depth);
-    LogStr = {['-----------Unit ' num2str(ds_info.iCell) ' (' num2str(ds_info.pen_depth) ' um)---------']};
+%     LogStr = {['-----------Unit ' num2str(ds_info.iCell) ' (' num2str(ds_info.pen_depth) ' um)---------']};
+    LogStr = ['-----------Unit ' num2str(ds_info.iCell) ' (' num2str(ds_info.pen_depth) ' um)---------']; %EVE 09/08/2017: Function is not defined for 'cell' inputs. 
+    
     addtolog(DS.ID.Experiment, LogStr);
 end
 DS.ID.SubStimType = ds_info.SubStimType;

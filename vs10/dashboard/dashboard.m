@@ -358,18 +358,18 @@ if isSingleHandle(stimh),
             end
         end
     end
-%     GUImessage(figh,{'Existing stimulus menu', ...
-%         'must be closed before a new one',  'can be opened.'},'error');
-%     return;
+    GUImessage(figh,{'Existing stimulus menu', ...
+        'must be closed before a new one',  'can be opened.'},'error');
+    return;
 end
 % elseif ~hasExp,
 if ~hasExp
     GUImessage(figh,{'Define or resume an experiment'...
         'before launching a stimulus menu.'},'error');
     return;
-elseif needsEarcalib(current(experiment)),
-    GUI(earcalib);
-    return;
+% elseif needsEarcalib(current(experiment)),
+%     GUI(earcalib);
+%     return;
 else, % read stimname if not already specified and try to launch corresponding stim menu
     if isempty(StimType), 
         PP = GUIval(figh);
