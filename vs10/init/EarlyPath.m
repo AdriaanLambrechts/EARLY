@@ -84,7 +84,7 @@ addpath(fullfile(VD, 'DataAnalysis', 'Plot','KPlot','plotObjects'))
 addpath(fullfile(VD, 'DataAnalysis', 'Plot','plotObjects'))
 addpath(fullfile(VD, 'DataAnalysis', 'GenCalcFnc'))
 addpath(fullfile(VD, 'DataAnalysis', 'ConvFnc'))
-
+addpath(genpath([VD '\' 'DataAnalysis' '\' 'SPTcorr']))
 addpath(genpath([VD '\' 'DataAnalysis' '\' 'Tools']))
 addpath(genpath([VD '\' 'DataAnalysis' '\' 'Plot']))
 addpath(genpath([VD '\' 'DataAnalysis' '\' 'GenCalcFnc']))
