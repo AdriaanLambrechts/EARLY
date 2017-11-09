@@ -91,18 +91,19 @@ else %Binning frequency supplied as character string ...
     elseif strcmpi(BinFreq, 'auto')
         S = GetFreq(ds);
         if strcmp(ds.Stim.DAC,'Both') %Binaural dataset ...
-            if ~all(isnan(S.BeatModFreq(1:NRec)))
+            if ~all(isnan(S.BeatModFreq(1:NRec))) && ~all(S.BeatModFreq(1:NRec) == 0)
                 BinFreq = S.BeatModFreq(iSubSeqs);
-            elseif ~all(isnan(S.BeatFreq(1:NRec)))
+            elseif ~all(isnan(S.BeatFreq(1:NRec))) && ~all(S.BeatModFreq(1:NRec) == 0)
                 BinFreq = S.BeatFreq(iSubSeqs);
             else
                 %If all else fails, try the find a column in ModFreq or CarFreq that
                 %isn't all NaN ...
                 ColIdx = find(all(~isnan(S.ModFreq(1:NRec, :)), 2));
+                ColIdx = find(all(~S.ModFreq(1:NRec,:) == 0,2));
                 if ~isempty(ColIdx)
                     BinFreq = S.ModFreq(iSubSeqs, ColIdx);
                 else
-                    ColIdx = find(all(~isnan(S.BeatFreq(:, 1:NRec))));
+                     ColIdx = find(all(~isnan(S.BeatFreq(1:NRec,:))));
                     if ~isempty(ColIdx)
                         BinFreq = S.BeatFreq(iSubSeqs, ColIdx); 
                     else
