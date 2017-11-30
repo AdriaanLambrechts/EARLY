@@ -11,7 +11,7 @@ function [] = start_datagraze()
 %                 proc.StartInfo.FileName = 'matlab';
                 datagrazeVar.currentMatlablocation=[matlabroot, '\bin\matlab'];
                     
-                proc.StartInfo.FileName = currentMatlablocation;                
+                proc.StartInfo.FileName = datagrazeVar.currentMatlablocation;                
                 
                 exp_name = current(experiment);
                 exp_name = exp_name.ID.Name;
