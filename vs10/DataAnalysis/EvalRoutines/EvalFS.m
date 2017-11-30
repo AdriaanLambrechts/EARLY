@@ -109,9 +109,12 @@ fprintf('Calculating Correlogram and Cyclehistogram for : ');
 
 [spt1,count1] = spiketimes(ds1);
 %Remove all cells that contain no spikes
-remove = find(~count1);
+[remrow,remcol] = find(~count1);
+removefirst = remrow;
 [spt2,count2] = spiketimes(ds2);
-remove = [remove find(~count2)]; 
+[remrow,remcol] = find(~count2)
+removesecond = remrow;
+remove = [removefirst; removesecond]; 
 remove = unique(remove);
 StimFreq(remove) = [];
 ComSub(:,remove) = [];
@@ -385,6 +388,7 @@ MPC(2) = CollectInStruct(X, Y, pRayleigh, Slope, YInterSect, pLinReg, MSerror, D
 
 %Monaurale phaseverschil ...
 X = intersect(MPC(1).X, MPC(2).X);
+X(:,remove) = [];
 idx1 = find(ismember(round(MPC(1).X), round(X)));
 idx2 = find(ismember(round(MPC(2).X), round(X)));
 Y = MPC(1).Y(idx1) - MPC(2).Y(idx2);
